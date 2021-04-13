@@ -3,41 +3,48 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int fun(int pole[], int* i){
+int fun(int pole[],int n, int d ){
 
-    int cislo=0;
-
-    while(1>0){
-
-
-        scanf("%d", &cislo);
-        if (cislo==0){
-            break;
+    int pocetak=0;
+    int kraj=n/d;
+    int i;
+    int** nizovi=malloc(sizeof(int*) * (d+1));
+    for(i=0;i<d;i++){
+        nizovi[i] = malloc(n/d);
+    }
+    nizovi[i]=NULL;
+    int j;
+    int indx=0;
+    for(int i=0;i<d;i++){
+        for(j=pocetak;j<kraj-1;j++){
+            nizovi[i][indx]= pole[j];
+            indx++;
         }
-        pole[*i]=cislo;
+        nizovi[i][indx]= 0;
+        indx=0;
+        pocetak=kraj;
+        kraj+=(n/d);
+    }
+    for(int i=0; i<d; i++)
+    {
+        printf("Pointer: %d\n", nizovi[i]);
+        for(int j=0;j<(n/d);j++ )
+        {
 
-        (*i)++;
-        pole = (int*)realloc(pole, (*i+1)*sizeof(int));
+            printf("%d ",nizovi[i][j]);
+        }
+        printf("\n");
     }
 
-    for(int j=0;j<*i;j++){
-        printf("%d ", pole[j]);
-    }
-
-
-    return pole;
 
 
 }
 
 int main() {
-    int *arr;
-    int i=0;
-    arr = (int*)malloc(sizeof(int));
+    int arr[]={1,5,2,7,3,6,9,3,7,1,3,8};
+  //  int *ptr = arr;
 
-
-    printf("\n%d ", arr=fun(arr,&i));
-
+    fun(arr, sizeof(arr)/sizeof (arr[0]), 3);
 
 
 
