@@ -3,32 +3,26 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int fun(int pole[],int n, int d ){
+int fun(int pole[],int n, int m ){
 
-    int pocetak=0;
-    int kraj=n/d;
     int i;
-    int** nizovi=malloc(sizeof(int*) * (d+1));
-    for(i=0;i<d;i++){
-        nizovi[i] = malloc(n/d);
+    int** nizovi=malloc(sizeof(int*) * (n));
+    for(i=0;i<n;i++){
+        nizovi[i] = malloc(m);
     }
-    nizovi[i]=NULL;
+
     int j;
-    int indx=0;
-    for(int i=0;i<d;i++){
-        for(j=pocetak;j<kraj-1;j++){
-            nizovi[i][indx]= pole[j];
-            indx++;
+    for(int i=0;i<n;i++){
+        for(j=0;j<m;j++){
+            nizovi[i][j]= 0;
+
         }
-        nizovi[i][indx]= 0;
-        indx=0;
-        pocetak=kraj;
-        kraj+=(n/d);
+
     }
-    for(int i=0; i<d; i++)
+    for(int i=0; i<n; i++)
     {
-        printf("Pointer: %d\n", nizovi[i]);
-        for(int j=0;j<(n/d);j++ )
+
+        for(int j=0;j<m;j++ )
         {
 
             printf("%d ",nizovi[i][j]);
@@ -41,10 +35,10 @@ int fun(int pole[],int n, int d ){
 }
 
 int main() {
-    int arr[]={1,5,2,7,3,6,9,3,7,1,3,8};
-  //  int *ptr = arr;
+    int *arr;
 
-    fun(arr, sizeof(arr)/sizeof (arr[0]), 3);
+
+    fun(arr, 4,4);
 
 
 
