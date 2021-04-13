@@ -7,12 +7,12 @@
 #IncludeRegexTransform: 
 
 C:/Users/WIN10/Desktop/FEI/4.semeter/PROG2/Cvicenie8/PROG2-Dynamicke-polia/main.c
+stdio.h
+-
 string.h
 -
 memory.h
 -
 stdlib.h
--
-stdio.h
 -
 

@@ -1,47 +1,36 @@
+#include <stdio.h>
 #include <string.h>
 #include <memory.h>
 #include <stdlib.h>
-#include <stdio.h>
 
-int fun(int pole[],int n, int m ){
+int* fun(int pole[], int dlzka){
 
-    int i;
-    int** nizovi=malloc(sizeof(int*) * (n));
-    for(i=0;i<n;i++){
-        nizovi[i] = malloc(m);
-    }
-
-    int j;
-    for(int i=0;i<n;i++){
-        for(j=0;j<m;j++){
-            nizovi[i][j]= 0;
-
-        }
-        //nizovi[i]=realoc(nizovi[i],novaVelicina);
-
-    }
-    for(int i=0; i<n; i++)
-    {
-
-        for(int j=0;j<m;j++ )
+    int *nove;
+    nove = (int*)malloc(dlzka*sizeof(int));
+    printf("%d\n", sizeof(nove)/sizeof(nove[0]));
+    int j=0;
+    for(int i=0;i<dlzka;i++){
+        if(pole[i]>0)
         {
-
-            printf("%d ",nizovi[i][j]);
+            nove[j]=pole[i];
+            j++;
         }
-        printf("\n");
+    }
+    nove[j]=-1;
+    for(int i=0;i<=j;i++){
+        printf("%d ", nove[i]);
     }
 
 
+
+    return nove;
 
 }
 
 int main() {
-    int *arr;
-
-
-    fun(arr, 4,4);
-
-
-
+    int pole[]={1,-5,2,-3,7,-4};
+    int dlzka =  sizeof(pole)/sizeof(pole[0]);
+    //printf("%d", dlzka);
+    printf("\n%d ",fun(pole,dlzka));
     return 0;
 }
