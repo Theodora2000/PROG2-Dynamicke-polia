@@ -1,36 +1,45 @@
-#include <stdio.h>
 #include <string.h>
 #include <memory.h>
 #include <stdlib.h>
+#include <stdio.h>
 
-int* fun(int pole[], int dlzka){
+int fun(int pole[], int* i){
 
-    int *nove;
-    nove = (int*)malloc(dlzka*sizeof(int));
-    printf("%d\n", sizeof(nove)/sizeof(nove[0]));
-    int i=0;
-    int j=0;
-    for(int i=0;i<dlzka;i++){
-        if(pole[i]>0){
-            nove[j]=pole[i];
-            j++;
+    int cislo=0;
+
+    while(1>0){
+
+
+        scanf("%d", &cislo);
+        if (cislo==0){
+            break;
         }
+        pole[*i]=cislo;
+
+        (*i)++;
+        pole = (int*)realloc(pole, (*i+1)*sizeof(int));
     }
-    nove[j+1]=-1;
-    for(int i=0;i<j+1;i++){
-        printf("%d ", nove[i]);
+
+    for(int j=0;j<*i;j++){
+        printf("%d ", pole[j]);
     }
 
 
-    printf("%d\n", sizeof(nove)/sizeof(nove[0]));
-    return nove;
+    return pole;
+
 
 }
 
 int main() {
-    int pole[]={1,-5,2,-3,7,-4};
-    int dlzka =  sizeof(pole)/sizeof(pole[0]);
-    //printf("%d", dlzka);
-    printf("\n%d ",fun(pole,dlzka));
+    int *arr;
+    int i=0;
+    arr = (int*)malloc(sizeof(int));
+
+
+    printf("\n%d ", arr=fun(arr,&i));
+
+
+
+
     return 0;
 }
