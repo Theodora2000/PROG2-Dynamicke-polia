@@ -17,6 +17,7 @@ int fun(int pole[],int n, int m ){
             nizovi[i][j]= 0;
 
         }
+        //nizovi[i]=realoc(nizovi[i],novaVelicina);
 
     }
     for(int i=0; i<n; i++)
