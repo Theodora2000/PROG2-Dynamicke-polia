@@ -3,40 +3,34 @@
 #include <memory.h>
 #include <stdlib.h>
 
-int fun(int pole[]){
+int* fun(int pole[], int dlzka){
 
-    int cislo=0;
-
+    int *nove;
+    nove = (int*)malloc(dlzka*sizeof(int));
+    printf("%d\n", sizeof(nove)/sizeof(nove[0]));
     int i=0;
-    while(1>0){
-
-
-        scanf("%d", &cislo);
-        if (cislo==0){
-            break;
+    int j=0;
+    for(int i=0;i<dlzka;i++){
+        if(pole[i]>0){
+            nove[j]=pole[i];
+            j++;
         }
-        pole[i]=cislo;
-        printf("%d", pole[i]);
-        i++;
-        pole = (int*)realloc(pole, sizeof(int));
+    }
+    nove[j+1]=-1;
+    for(int i=0;i<j+1;i++){
+        printf("%d ", nove[i]);
     }
 
 
-    return 0;
-
+    printf("%d\n", sizeof(nove)/sizeof(nove[0]));
+    return nove;
 
 }
 
 int main() {
-    int *arr;
-    arr = (int*)malloc(sizeof(int));
-   /*printf("%d\n", size);
-   for(int i=0;i<size;i++){
-       printf("%d ", pole[i]);
-   }*/
-
-   fun(arr);
-
-
+    int pole[]={1,-5,2,-3,7,-4};
+    int dlzka =  sizeof(pole)/sizeof(pole[0]);
+    //printf("%d", dlzka);
+    printf("\n%d ",fun(pole,dlzka));
     return 0;
 }
