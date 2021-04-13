@@ -5,41 +5,38 @@
 
 int fun(int pole[]){
 
-    int size = 0;
     int cislo=0;
-    pole = (int*)malloc(sizeof(int));
+
     int i=0;
     while(1>0){
-        scanf("%d", &cislo);
-        if(cislo==0){
 
+
+        scanf("%d", &cislo);
+        if (cislo==0){
             break;
         }
         pole[i]=cislo;
+        printf("%d", pole[i]);
         i++;
-        size=i;
-        pole = realloc(pole, sizeof(int));
+        pole = (int*)realloc(pole, sizeof(int));
     }
 
 
-
-    for(int i=0;i<size;i++){
-        printf("%d ", pole[i]);
-    }
-
-    return pole;
+    return 0;
 
 
 }
 
 int main() {
-   int pole[]={0};
-    int size = sizeof(pole)/sizeof(pole[0]);
+    int *arr;
+    arr = (int*)malloc(sizeof(int));
    /*printf("%d\n", size);
    for(int i=0;i<size;i++){
        printf("%d ", pole[i]);
    }*/
 
-   fun(pole);
+   fun(arr);
+
+
     return 0;
 }
